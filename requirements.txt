@@ -1,0 +1,3 @@
+geoopt
+torch_scatter
+pydot
