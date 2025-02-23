@@ -24,3 +24,4 @@ Figure 1. Prediction results on FootBall dataset.
 <div align=center>
 Figure 2. True labels of FootBall dataset.
 </div>
+# deep_graph_clustering
