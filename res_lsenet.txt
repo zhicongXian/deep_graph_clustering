@@ -1,0 +1,92 @@
+### Starting TaskPrologue of job 2411605 on a0832 at Tue Feb 25 15:41:55 CET 2025
+Running on cores 0-15 with governor ondemand
+Tue Feb 25 15:41:55 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.86.15              Driver Version: 570.86.15      CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:0E:00.0 Off |                    0 |
+| N/A   42C    P0             67W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+INFO - 02/25/25 15:42:54 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 2, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 2, 'hidden_dim_enc': 16, 'hidden_dim': 32, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1'}
+INFO - 02/25/25 15:43:04 - 0:00:10 - 
+                                     train iters 0
+Traceback (most recent call last):
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main.py", line 77, in <module>
+    exp.train()
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+    nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 82, in train_clu
+    loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 64, in loss
+    embeddings, clu_mat = self.encoder(features, adj)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 45, in forward
+    x = self.manifold.expmap0(x)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/__init__.py", line 105, in expmap0
+    res = math.expmap0(u, k=self.k, dim=dim)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 341, in expmap0
+    return _expmap0(u, k, dim=dim)
+RuntimeError: The following operation failed in the TorchScript interpreter.
+Traceback of TorchScript (most recent call last):
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 346, in _expmap0
+@torch.jit.script
+def _expmap0(u, k: torch.Tensor, dim: int = -1):
+    nomin = _norm(u, keepdim=True, dim=dim)
+            ~~~~~ <--- HERE
+    l_v = torch.cosh(nomin / torch.sqrt(k)) * torch.sqrt(k)
+    r_v = torch.sqrt(k) * torch.sinh(nomin / torch.sqrt(k)) * u / nomin
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 282, in _norm
+@torch.jit.script
+def _norm(u, keepdim: bool = False, dim: int = -1):
+    return torch.sqrt(torch.clamp_min(_inner(u, u, keepdim=keepdim), 1e-8))
+                                      ~~~~~~ <--- HERE
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 46, in _inner
+        ).sum(dim=dim, keepdim=False)
+    else:
+        return torch.cat((-uv.narrow(dim, 0, 1), uv.narrow(dim, 1, d)), dim=dim).sum(
+               ~~~~~~~~~ <--- HERE
+            dim=dim, keepdim=True
+        )
+RuntimeError: CUDA out of memory. Tried to allocate 18.26 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.70 GiB is free. Including non-PyTorch memory, this process has 73.54 GiB memory in use. Of the allocated memory 73.04 GiB is allocated by PyTorch, and 25.67 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+=== JOB_STATISTICS ===
+=== current date     : Tue Feb 25 15:43:07 CET 2025
+= Job-ID             : 2411605 on alex
+= Job-Name           : fau_alex_job_script.sh
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:01:12
+= Total RAM usage    : 37.6 GiB of assigned  GiB (%)
+= Node list          : a0832
+= Subm/Elig/Start/End: 2025-02-25T15:41:35 / 2025-02-25T15:41:35 / 2025-02-25T15:41:54 / 2025-02-25T15:43:06
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           29.9G   104.9G   209.7G        N/A  48,340      500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-80GB, 00000000:0E:00.0, 1494963, 2 %, 0 %, 75308 MiB, 41274 ms
