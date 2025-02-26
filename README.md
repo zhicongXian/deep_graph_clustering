@@ -25,3 +25,4 @@ Figure 1. Prediction results on FootBall dataset.
 Figure 2. True labels of FootBall dataset.
 </div>
 # deep_graph_clustering
+sbatch --gres=gpu:a100:1 -C a100_80 --time=24:00:00 --output=res_lsenet.txt fau_alex_job_script.sh

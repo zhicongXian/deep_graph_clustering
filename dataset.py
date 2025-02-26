@@ -80,7 +80,7 @@ class SeNetAffinityMatrixDataSet:
             graph = nx.from_scipy_sparse_array(x)
         else:
             raise FileNotFoundError(f"File not found {x_filepath}")
-
+        print(f"number of nodes in graph: {graph.number_of_nodes()}, \n Number of edges in the graph: {graph.number_of_edges()}")
         data = from_networkx(graph)
         self.feature = torch.eye(data.num_nodes)
         self.num_features = data.num_nodes

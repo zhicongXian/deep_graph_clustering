@@ -1,3 +1,6 @@
 geoopt
 torch_scatter
 pydot
+torch_geometric
+matlibplot
+munkres
