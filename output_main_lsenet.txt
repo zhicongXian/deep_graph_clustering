@@ -1,2 +1,5 @@
 Log path: ./results/run/SeNet.log
 Log path: ./results/run/SeNet.log
+Log path: ./results/run/SeNet.log
+number of nodes in graph: 1000, 
+ Number of edges in the graph: 2146
