@@ -1,9 +1,9 @@
 #!/usr/bin/bash -l
 #
-# SBATCH --gres=gpu:a100:5
-# SBATCH --time=24:00:00
-# SBATCH --job-name=lsenet_senet
-# SBATCH --output=res_lsenet.txt
+# SBATCH --gres=gpu:a100:1
+#SBATCH --time=24:00:00
+#SBATCH --job-name=lsenet_senet
+#SBATCH --output=res_lsenet.txt
 
 unset SLURM_EXPORT_ENV
 

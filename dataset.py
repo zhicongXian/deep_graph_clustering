@@ -72,8 +72,8 @@ class SeNetAffinityMatrixDataSet:
         """
 
         """
-        x_filepath = "./datasets/affinity_matrix_from_senet_sparse.npz"
-        y_filepath = "./datasets/senet_label.csv"
+        x_filepath = "./datasets/affinity_matrix_from_senet_sparse_1000.npz"
+        y_filepath = "./datasets/senet_label_1000.csv"
         if os.path.isfile(x_filepath) and os.path.isfile(y_filepath):
             x = sp.sparse.load_npz(x_filepath) #np.load(x_filepath, allow_pickle=True)
             y = np.loadtxt(y_filepath)
