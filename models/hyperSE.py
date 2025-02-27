@@ -14,7 +14,6 @@ import math
 from models.l_se_net import LSENet
 from torch_geometric.utils import negative_sampling
 
-
 MIN_NORM = 1e-15
 EPS = 1e-6
 
@@ -42,6 +41,8 @@ class HyperSE(nn.Module):
         for k in range(self.height - 1, 0, -1):
             ass_mat[k] = ass_mat[k + 1] @ clu_mat[k + 1]
         for k, v in ass_mat.items():
+            if v.numel() == 0:
+                continue
             idx = v.max(1)[1]
             t = torch.zeros_like(v)
             t[torch.arange(t.shape[0]), idx] = 1.
@@ -83,10 +84,10 @@ class HyperSE(nn.Module):
         for k in range(1, self.height + 1):
             vol_parent = torch.einsum('ij, j->i', clu_mat[k], vol_dict[k - 1])  # (N_k, )
             log_vol_ratio_k = torch.log2((vol_dict[k] + EPS) / (vol_parent + EPS))  # (N_k, )
-            ass_i = ass_mat[k][edge_index[0]]   # (E, N_k)
+            ass_i = ass_mat[k][edge_index[0]]  # (E, N_k)
             ass_j = ass_mat[k][edge_index[1]]
             weight_sum = torch.einsum('en, e->n', ass_i * ass_j, weight)  # (N_k, )
-            delta_vol = vol_dict[k] - weight_sum    # (N_k, )
+            delta_vol = vol_dict[k] - weight_sum  # (N_k, )
             se_loss += torch.sum(delta_vol * log_vol_ratio_k)
         se_loss = -1 / vol_G * se_loss
         return se_loss + self.manifold.dist0(embeddings[0]) + lp_loss
