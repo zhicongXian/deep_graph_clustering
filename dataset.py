@@ -13,6 +13,7 @@ import numpy as np
 import os.path
 import scipy as sp
 
+
 def load_data(configs):
     dataset = None
     if configs.dataset in ['Cora', 'Citeseer', 'Pubmed', 'Computers', 'Photo']:
@@ -26,7 +27,7 @@ def load_data(configs):
     elif configs.dataset == 'SBM':
         dataset = SBMDataset(root=configs.root_path)
     elif configs.dataset == 'SeNet':
-        dataset = SeNetAffinityMatrixDataSet()
+        dataset = SeNetAffinityMatrixDataSet(data_file_path=configs.data_path, label_file_path=configs.label_path)
     data = {}
     data['feature'] = dataset.feature
     data['num_features'] = dataset.num_features
@@ -68,19 +69,21 @@ class KarateClub:
 
 
 class SeNetAffinityMatrixDataSet:
-    def __init__(self):
+    def __init__(self, data_file_path="./datasets/affinity_matrix_from_senet_sparse.npz",
+                 label_file_path="./datasets/senet_label.csv"):
         """
 
         """
-        x_filepath = "./datasets/affinity_matrix_from_senet_sparse.npz"
-        y_filepath = "./datasets/senet_label.csv"
+        x_filepath = data_file_path  # "./datasets/affinity_matrix_from_senet_sparse.npz"
+        y_filepath = label_file_path  # "./datasets/senet_label.csv"
         if os.path.isfile(x_filepath) and os.path.isfile(y_filepath):
-            x = sp.sparse.load_npz(x_filepath) #np.load(x_filepath, allow_pickle=True)
+            x = sp.sparse.load_npz(x_filepath)  # np.load(x_filepath, allow_pickle=True)
             y = np.loadtxt(y_filepath)
             graph = nx.from_scipy_sparse_array(x)
         else:
             raise FileNotFoundError(f"File not found {x_filepath}")
-        print(f"number of nodes in graph: {graph.number_of_nodes()}, \n Number of edges in the graph: {graph.number_of_edges()}")
+        print(
+            f"number of nodes in graph: {graph.number_of_nodes()}, \n Number of edges in the graph: {graph.number_of_edges()}")
         data = from_networkx(graph)
         self.feature = torch.eye(data.num_nodes)
         self.num_features = data.num_nodes
@@ -92,7 +95,6 @@ class SeNetAffinityMatrixDataSet:
         self.num_classes = len(np.unique(self.labels))
         self.neg_edge_index = negative_sampling(data.edge_index)
         self.adj = index2adjacency(self.num_nodes, self.edge_index, self.weight, is_sparse=True)
-
 
 
 class Football:

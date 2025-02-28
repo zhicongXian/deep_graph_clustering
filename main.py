@@ -51,6 +51,8 @@ parser.add_argument('--use_gpu', action='store_false', help='use gpu')
 parser.add_argument('--gpu', type=int, default=0, help='gpu')
 parser.add_argument('--devices', type=str, default='0,1',
                     help='device ids of multiple gpus')
+parser.add_argument('--data_path', type=str, default='./datasets/affinity_matrix_from_senet_sparse_1000.npz')
+parser.add_argument('--label_path', type=str, default='./datasets/senet_label_1000.csv')
 
 configs = parser.parse_args()
 # with open(f'./configs/{configs.dataset}.json', 'wt') as f:
