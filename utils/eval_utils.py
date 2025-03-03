@@ -16,10 +16,14 @@ def decoding_cluster_from_tree(manifold, tree: nx.Graph, num_clusters, num_nodes
             dist_dict[h].update({u: manifold.dist(root_coords, tree.nodes[u]['coords']).numpy()})
 
     h = 1
-    sorted_dist_list = sorted(dist_dict[h].items(), reverse=False, key=lambda x: x[1])
+    # reassign the dist_dict to remove empty dicts:
+    if bool(dist_dict):
+        sorted_dist_list = sorted(dist_dict[h].items(), reverse=False, key=lambda x: x[1])
+    else:
+        sorted_dist_list = dist_dict
     count = len(sorted_dist_list)
     group_list = [([u], dist) for u, dist in sorted_dist_list]  # [ ([u], dist_u) ]
-    while len(group_list) <= 1:
+    while len(group_list) <= 1 and len(group_list) > 0  :
         h = h + 1
         sorted_dist_list = sorted(dist_dict[h].items(), reverse=False, key=lambda x: x[1])
         count = len(sorted_dist_list)
@@ -29,7 +33,7 @@ def decoding_cluster_from_tree(manifold, tree: nx.Graph, num_clusters, num_nodes
         group_list, count = merge_nodes_once(manifold, root_coords, tree, group_list, count)
 
     while count < num_clusters and h <= height:
-        h = h + 1   # search next level
+        h = h + 1  # search next level
         pos = 0
         while pos < len(group_list):
             v1, d1 = group_list[pos]  # node to split
@@ -39,7 +43,7 @@ def decoding_cluster_from_tree(manifold, tree: nx.Graph, num_clusters, num_nodes
                 if tree.nodes[v]['height'] == h:
                     v_coords = tree.nodes[v]['coords']
                     dist = manifold.dist(v_coords, v1_coord).cpu().numpy()
-                    sub_level_set.append(([v], dist))    # [ ([v], dist_v) ]
+                    sub_level_set.append(([v], dist))  # [ ([v], dist_v) ]
             if len(sub_level_set) <= 1:
                 pos += 1
                 continue
@@ -49,7 +53,7 @@ def decoding_cluster_from_tree(manifold, tree: nx.Graph, num_clusters, num_nodes
                 while count > num_clusters:
                     sub_level_set, count = merge_nodes_once(manifold, v1_coord, tree, sub_level_set, count)
                 del group_list[pos]  # del the position node which will be split
-                group_list += sub_level_set    # Now count == num_clusters
+                group_list += sub_level_set  # Now count == num_clusters
                 break
             elif count == num_clusters:
                 del group_list[pos]  # del the position node which will be split

@@ -39,7 +39,7 @@ class HyperSE(nn.Module):
             self.embeddings[height] = x.detach()
         ass_mat = {self.height: torch.eye(self.num_nodes).to(device)}
         for k in range(self.height - 1, 0, -1):
-            ass_mat[k] = ass_mat[k + 1] @ clu_mat[k + 1]
+            ass_mat[k] = ass_mat[k + 1] @ clu_mat[k + 1] # assigning the nodes to the trees
         for k, v in ass_mat.items():
             if v.numel() == 0:
                 continue
