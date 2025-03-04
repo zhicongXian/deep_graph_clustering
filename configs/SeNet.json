@@ -7,7 +7,7 @@
     "version": "run",
     "pre_epochs": 1000,
     "epochs": 5000,
-    "height": 3,
+    "height": 4,
     "lr_pre": 0.01,
     "lr": 0.01,
     "w_decay": 0.0,
