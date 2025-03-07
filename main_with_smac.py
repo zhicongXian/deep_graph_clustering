@@ -7,7 +7,8 @@ from exp import Exp
 from logger import create_logger
 import json
 from utils.train_utils import DotDict
-
+from smac import HyperparameterOptimizationFacade, Scenario
+from ConfigSpace import Configuration, ConfigurationSpace
 
 seed = 3047
 random.seed(seed)
@@ -62,7 +63,27 @@ with open(f'./configs/{configs.dataset}.json', 'rt') as f:
     configs_dict.update(json.load(f))
 configs = DotDict(configs_dict)
 f.close()
+configs_dict_for_configspace = dict()
+for k, v in configs_dict.items():
+    configs_dict_for_configspace[k] = [v]
+    if k == 'height':
+        configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
+    elif k == "r":
+        configs_dict_for_configspace[k] = (0.001, 10)
+    elif k == "t":
+        configs_dict_for_configspace[k] = (0.001, 10)
+    elif k == "lr":
+        configs_dict_for_configspace[k] = (0.0001, 1)
+    elif k == "lr_pre":
+        configs_dict_for_configspace[k] = (0.0001, 1)
+    elif k == "decay_rate":
+        configs_dict_for_configspace[k] = (0.1, 10)
+    elif k == "n_cluster_trials":
+        configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
+configspace = ConfigurationSpace(configs_dict_for_configspace)
+# Scenario object specifying the optimization environment
+scenario = Scenario(configspace, deterministic=False, n_trials=200)
 
 log_path = f"./results/{configs.version}/{configs.dataset}.log"
 configs.log_path = log_path
@@ -76,6 +97,20 @@ print(f"Log path: {configs.log_path}")
 logger = create_logger(configs.log_path)
 logger.info(configs)
 
-exp = Exp(configs)
-exp.train()
-torch.cuda.empty_cache()
+
+def train(config: Configuration, seed: int = 0) -> float:
+    exp = Exp(DotDict(dict(config)))
+    ari = exp.train()
+    torch.cuda.empty_cache()
+    return ari
+
+
+# Scenario object specifying the optimization environment
+scenario = Scenario(configspace, deterministic=False, n_trials=200)
+
+# Use SMAC to find the best configuration/hyperparameters
+smac = HyperparameterOptimizationFacade(scenario, train)
+incumbent = smac.optimize()
+
+with open('hpo_best_results.json', 'w') as fp:
+    json.dump(dict(incumbent), fp)

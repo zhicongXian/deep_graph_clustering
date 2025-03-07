@@ -64,9 +64,11 @@ class Exp:
         if self.configs.task == 'Clustering':
             logger.info(f"NMI: {np.mean(total_nmi)}+-{np.std(total_nmi)}, "
                         f"ARI: {np.mean(total_ari)}+-{np.std(total_ari)}")
+            return np.mean(total_ari)
         if self.configs.task == 'LP':
             logger.info(f"test AUC: {np.mean(aucs)}~{np.std(aucs)}")
             logger.info(f"test AP: {np.mean(aps)}~{np.std(aps)}")
+            return np.mean(aps)
 
     def train_clu(self, data, model, optimizer, logger, device, exp_iter):
         best_cluster_result = {}

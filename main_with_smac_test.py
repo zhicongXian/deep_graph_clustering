@@ -63,7 +63,6 @@ with open(f'./configs/{configs.dataset}.json', 'rt') as f:
 configs = DotDict(configs_dict)
 f.close()
 
-
 log_path = f"./results/{configs.version}/{configs.dataset}.log"
 configs.log_path = log_path
 if not os.path.exists(f"./results"):
