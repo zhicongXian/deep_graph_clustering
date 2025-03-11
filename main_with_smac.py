@@ -102,7 +102,7 @@ def train(config: Configuration, seed: int = 0) -> float:
     exp = Exp(DotDict(dict(config)))
     ari = exp.train()
     torch.cuda.empty_cache()
-    return ari
+    return 1 - ari
 
 
 # Scenario object specifying the optimization environment
