@@ -26,6 +26,9 @@ scenario = Scenario(configspace, deterministic=True, n_trials=200)
 smac = HyperparameterOptimizationFacade(scenario, train)
 incumbent = smac.optimize()
 print("debugging", incumbent)
+best_score = smac.runhistory.get_min_cost(incumbent)
+# best_parameters = incumbent.get_dictionary()
+print(f"best_score found {1- best_score}")
 import json
 
 with open('data.json', 'w') as fp:

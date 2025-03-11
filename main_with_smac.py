@@ -111,6 +111,8 @@ scenario = Scenario(configspace, deterministic=False, n_trials=200)
 # Use SMAC to find the best configuration/hyperparameters
 smac = HyperparameterOptimizationFacade(scenario, train)
 incumbent = smac.optimize()
-
+best_score = smac.runhistory.get_min_cost(incumbent)
+# best_parameters = incumbent.get_dictionary()
+print(f"best ari found {1-best_score}")
 with open('hpo_best_results.json', 'w') as fp:
     json.dump(dict(incumbent), fp)
