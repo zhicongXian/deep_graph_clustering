@@ -1,0 +1,1 @@
+{"data_path": "./datasets/affinity_matrix_from_senet_sparse_20000.npz", "dataset": "SeNet", "decay_rate": 1.1643280289136, "devices": "0,1", "dropout": 0.0, "embed_dim": 
