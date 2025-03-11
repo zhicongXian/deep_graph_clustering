@@ -483,3 +483,33 @@ INFO - 03/11/25 09:29:29 - 2:02:26 - Epoch 455: train_loss=1.1161192655563354
 INFO - 03/11/25 09:29:43 - 2:02:41 - Epoch 456: train_loss=1.115898847579956
 INFO - 03/11/25 09:29:57 - 2:02:55 - Epoch 457: train_loss=1.1164275407791138
 INFO - 03/11/25 09:30:12 - 2:03:09 - Epoch 458: train_loss=1.1166094541549683
+INFO - 03/11/25 09:30:26 - 2:03:24 - Epoch 459: train_loss=1.1159099340438843
+INFO - 03/11/25 09:30:40 - 2:03:38 - Epoch 460: train_loss=1.1181997060775757
+INFO - 03/11/25 09:30:55 - 2:03:52 - Epoch 461: train_loss=1.1164350509643555
+INFO - 03/11/25 09:31:09 - 2:04:07 - Epoch 462: train_loss=1.1174982786178589
+INFO - 03/11/25 09:31:23 - 2:04:21 - Epoch 463: train_loss=1.1181234121322632
+INFO - 03/11/25 09:31:38 - 2:04:35 - Epoch 464: train_loss=1.116876244544983
+slurmstepd: error: *** JOB 2447766 ON a0931 CANCELLED AT 2025-03-11T09:31:46 ***
+=== JOB_STATISTICS ===
+=== current date     : Tue Mar 11 09:31:49 CET 2025
+= Job-ID             : 2447766 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 02:06:06
+= Total RAM usage    : 3.9 GiB of assigned  GiB (%)
+= Node list          : a0931
+= Subm/Elig/Start/End: 2025-03-11T01:47:33 / 2025-03-11T01:47:33 / 2025-03-11T07:25:40 / 2025-03-11T09:31:46
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.1G   104.9G   209.7G        N/A      51K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-80GB, 00000000:90:00.0, 4157165, 86 %, 10 %, 58808 MiB, 7523492 ms
