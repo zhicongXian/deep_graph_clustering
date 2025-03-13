@@ -3,7 +3,7 @@
 # SBATCH --gres=gpu:a100:1
 #SBATCH --time=24:00:00
 #SBATCH --job-name=lsenet_senet
-#SBATCH --output=res_lsenet.txt
+#SBATCH --output=res_lsenet_check_cuda_error.txt
 
 unset SLURM_EXPORT_ENV
 
