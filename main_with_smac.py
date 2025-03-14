@@ -9,7 +9,7 @@ import json
 from utils.train_utils import DotDict
 from smac import HyperparameterOptimizationFacade, Scenario
 from ConfigSpace import Configuration, ConfigurationSpace
-
+import gc
 seed = 3047
 random.seed(seed)
 torch.manual_seed(seed)
@@ -102,6 +102,8 @@ def train(config: Configuration, seed: int = 0) -> float:
     exp = Exp(DotDict(dict(config)))
     ari = exp.train()
     torch.cuda.empty_cache()
+    del exp
+    gc.collect()
     return 1 - ari
 
 
