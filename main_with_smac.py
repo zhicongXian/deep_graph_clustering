@@ -10,6 +10,8 @@ from utils.train_utils import DotDict
 from smac import HyperparameterOptimizationFacade, Scenario
 from ConfigSpace import Configuration, ConfigurationSpace
 import gc
+from smac.initial_design.sobol_design import SobolInitialDesign
+
 seed = 3047
 random.seed(seed)
 torch.manual_seed(seed)
@@ -68,18 +70,18 @@ for k, v in configs_dict.items():
     configs_dict_for_configspace[k] = [v]
     if k == 'height':
         configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
-    elif k == "r":
-        configs_dict_for_configspace[k] = (0.001, 10)
-    elif k == "t":
-        configs_dict_for_configspace[k] = (0.001, 10)
+    # elif k == "r":
+    #     configs_dict_for_configspace[k] = (0.001, 10)
+    # elif k == "t":
+    #     configs_dict_for_configspace[k] = (0.001, 10)
     elif k == "lr":
         configs_dict_for_configspace[k] = (0.0001, 1)
     elif k == "lr_pre":
         configs_dict_for_configspace[k] = (0.0001, 1)
     elif k == "decay_rate":  # regularization coefficient for zero-norm weights
         configs_dict_for_configspace[k] = (0.01, 0.5)
-    elif k == "n_cluster_trials":
-        configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
+    # elif k == "n_cluster_trials":
+    #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
 configspace = ConfigurationSpace(configs_dict_for_configspace)
 # Scenario object specifying the optimization environment
@@ -102,16 +104,23 @@ def train(config: Configuration, seed: int = 0) -> float:
     exp = Exp(DotDict(dict(config)))
     ari = exp.train()
     torch.cuda.empty_cache()
-    del exp
-    gc.collect()
+    # del exp
+    # gc.collect()
     return 1 - ari
 
 
 # Scenario object specifying the optimization environment
-scenario = Scenario(configspace, deterministic=False, n_trials=200)
+scenario = Scenario(configspace, deterministic=True, n_trials=200)
 
 # Use SMAC to find the best configuration/hyperparameters
-smac = HyperparameterOptimizationFacade(scenario, train)
+inital_design = SobolInitialDesign(
+    scenario=scenario,
+# n_configs_per_hyperparameter=1,
+    n_configs=1
+
+)
+
+smac = HyperparameterOptimizationFacade(scenario, train, initial_design=inital_design)
 incumbent = smac.optimize()
 best_score = smac.runhistory.get_min_cost(incumbent)
 # best_parameters = incumbent.get_dictionary()

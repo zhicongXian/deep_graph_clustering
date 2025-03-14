@@ -77,10 +77,11 @@ class SeNetAffinityMatrixDataSet:
         x_filepath = data_file_path  # "./datasets/affinity_matrix_from_senet_sparse.npz"
         y_filepath = label_file_path  # "./datasets/senet_label.csv"
         if os.path.isfile(x_filepath) and os.path.isfile(y_filepath):
-            x = sp.sparse.load_npz(x_filepath)  # np.load(x_filepath, allow_pickle=True)
-            y = np.loadtxt(y_filepath)
+            x = sp.sparse.load_npz(x_filepath)  # .toarray()# [:100, :100]  # np.load(x_filepath, allow_pickle=True)
+            y = np.loadtxt(y_filepath)  # [:100]
             print(f"minimum weights are: {x.min()}")
-            graph = nx.from_scipy_sparse_array(np.abs(x))
+            # graph = nx.from_numpy_array(x)
+            graph = nx.from_scipy_sparse_array(x)
         else:
             raise FileNotFoundError(f"File not found {x_filepath}")
         print(
