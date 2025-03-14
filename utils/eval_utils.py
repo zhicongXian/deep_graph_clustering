@@ -20,6 +20,10 @@ def decoding_cluster_from_tree(manifold, tree: nx.Graph, num_clusters, num_nodes
     if bool(dist_dict):
         sorted_dist_list = sorted(dist_dict[h].items(), reverse=False, key=lambda x: x[1])
     else:
+        h = 0
+        u = num_nodes
+        dist_dict[h] = dist_dict.get(h, {})
+        dist_dict[h].update({u: manifold.dist(root_coords, tree.nodes[u]['coords']).numpy()})
         sorted_dist_list = dist_dict
     count = len(sorted_dist_list)
     group_list = [([u], dist) for u, dist in sorted_dist_list]  # [ ([u], dist_u) ]

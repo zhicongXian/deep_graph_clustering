@@ -76,8 +76,8 @@ for k, v in configs_dict.items():
         configs_dict_for_configspace[k] = (0.0001, 1)
     elif k == "lr_pre":
         configs_dict_for_configspace[k] = (0.0001, 1)
-    elif k == "decay_rate":
-        configs_dict_for_configspace[k] = (0.1, 10)
+    elif k == "decay_rate":  # regularization coefficient for zero-norm weights
+        configs_dict_for_configspace[k] = (0.01, 0.5)
     elif k == "n_cluster_trials":
         configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
@@ -113,6 +113,6 @@ smac = HyperparameterOptimizationFacade(scenario, train)
 incumbent = smac.optimize()
 best_score = smac.runhistory.get_min_cost(incumbent)
 # best_parameters = incumbent.get_dictionary()
-print(f"best ari found {1-best_score}")
+print(f"best ari found {1 - best_score}")
 with open('hpo_best_results.json', 'w') as fp:
     json.dump(dict(incumbent), fp)
