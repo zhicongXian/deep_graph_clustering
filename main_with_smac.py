@@ -80,6 +80,8 @@ for k, v in configs_dict.items():
         configs_dict_for_configspace[k] = (0.0001, 1)
     elif k == "decay_rate":  # regularization coefficient for zero-norm weights
         configs_dict_for_configspace[k] = (0.01, 0.5)
+    elif k == "temperature":
+        configs_dict_for_configspace[k] = (0.01, 1)
     # elif k == "n_cluster_trials":
     #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 

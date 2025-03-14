@@ -11,5 +11,5 @@ module load python/3.9-anaconda
 module load gcc/11.2.0
 # source $WORK/python_virtual_envs/doubly_robust_env/bin/activate # activate the python virtual environment
 conda activate clustering_env
-python3 ./main_with_smac.py --dataset=SeNet --data_path=./datasets/affinity_matrix_from_senet_sparse.npz --label_path=./datasets/senet_label.csv>> output_main_lsenet_hpo.txt
+python3 ./main_with_smac.py --dataset=SeNet --data_path=./datasets/affinity_matrix_from_senet_sparse_20000.npz --label_path=./datasets/senet_label_20000.csv>> output_main_lsenet_hpo.txt
 # ./cuda_application
