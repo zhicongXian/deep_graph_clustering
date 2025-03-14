@@ -421,3 +421,15 @@ Log path: ./results/run/SeNet.log
 Log path: ./results/run/SeNet.log
 [INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
 [INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
+[INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
+minimum weights are: 0.0
+number of nodes in graph: 70000, 
+ Number of edges in the graph: 160763
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
+[INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
+[INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
