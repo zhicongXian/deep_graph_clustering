@@ -2,7 +2,7 @@
     "dataset": "SeNet",
     "task": "Clustering",
     "root_path": "./datasets",
-    "eval_freq": 10,
+    "eval_freq": 100,
     "exp_iters": 5,
     "version": "run",
     "pre_epochs": 1000,
