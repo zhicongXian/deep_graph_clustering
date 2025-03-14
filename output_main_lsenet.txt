@@ -24,3 +24,6 @@ number of nodes in graph: 20000,
 Log path: ./results/run/SeNet.log
 number of nodes in graph: 20000, 
  Number of edges in the graph: 44441
+Log path: ./results/run/SeNet.log
+number of nodes in graph: 20000, 
+ Number of edges in the graph: 44441
