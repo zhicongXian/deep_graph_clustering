@@ -1,0 +1,210 @@
+### Starting TaskPrologue of job 2455136 on a0534 at Fri Mar 14 14:30:26 CET 2025
+Running on cores 80-95 with governor ondemand
+Fri Mar 14 14:30:26 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.86.15              Driver Version: 570.86.15      CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:96:00.0 Off |                    0 |
+| N/A   34C    P0             64W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+INFO - 03/14/25 14:31:24 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 1000, 'epochs': 5000, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse.npz', 'label_path': './datasets/senet_label.csv'}
+INFO - 03/14/25 14:31:36 - 0:00:11 - 
+                                     train iters 0
+WARNING - 03/14/25 14:34:47 - 0:03:23 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/14/25 14:34:47 - 0:03:23 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 103, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 44, in train
+                                            model = HyperSE(in_features=data['num_features'],
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1343, in to
+                                            return self._apply(convert)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          [Previous line repeated 4 more times]
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 930, in _apply
+                                            param_applied = fn(param)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1329, in convert
+                                            return t.to(
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 67.78 GiB. GPU 0 has a total capacity of 79.25 GiB of which 55.94 GiB is free. Including non-PyTorch memory, this process has 23.30 GiB memory in use. Of the allocated memory 22.87 GiB is allocated by PyTorch, and 24.74 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/14/25 14:34:47 - 0:03:23 - Added config 7a562e as new incumbent because there are no incumbents yet.
+INFO - 03/14/25 14:34:58 - 0:00:10 - 
+                                     train iters 0
+WARNING - 03/14/25 14:38:09 - 0:03:22 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/14/25 14:38:09 - 0:03:22 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 103, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 44, in train
+                                            model = HyperSE(in_features=data['num_features'],
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1343, in to
+                                            return self._apply(convert)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          [Previous line repeated 4 more times]
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 930, in _apply
+                                            param_applied = fn(param)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1329, in convert
+                                            return t.to(
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 67.78 GiB. GPU 0 has a total capacity of 79.25 GiB of which 55.94 GiB is free. Including non-PyTorch memory, this process has 23.30 GiB memory in use. Of the allocated memory 22.87 GiB is allocated by PyTorch, and 25.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/14/25 14:38:19 - 0:00:10 - 
+                                     train iters 0
+WARNING - 03/14/25 14:38:57 - 0:00:48 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/14/25 14:38:57 - 0:00:48 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 103, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 45, in forward
+                                            x = self.manifold.expmap0(x)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/__init__.py", line 105, in expmap0
+                                            res = math.expmap0(u, k=self.k, dim=dim)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 341, in expmap0
+                                            return _expmap0(u, k, dim=dim)
+                                        RuntimeError: The following operation failed in the TorchScript interpreter.
+                                        Traceback of TorchScript (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 346, in _expmap0
+                                        @torch.jit.script
+                                        def _expmap0(u, k: torch.Tensor, dim: int = -1):
+                                            nomin = _norm(u, keepdim=True, dim=dim)
+                                                    ~~~~~ <--- HERE
+                                            l_v = torch.cosh(nomin / torch.sqrt(k)) * torch.sqrt(k)
+                                            r_v = torch.sqrt(k) * torch.sinh(nomin / torch.sqrt(k)) * u / nomin
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 282, in _norm
+                                        @torch.jit.script
+                                        def _norm(u, keepdim: bool = False, dim: int = -1):
+                                            return torch.sqrt(torch.clamp_min(_inner(u, u, keepdim=keepdim), 1e-8))
+                                                                              ~~~~~~ <--- HERE
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 40, in _inner
+                                        def _inner(u, v, keepdim: bool = False, dim: int = -1):
+                                            d = u.size(dim) - 1
+                                            uv = u * v
+                                                 ~~~~~ <--- HERE
+                                            if keepdim is False:
+                                                return -uv.narrow(dim, 0, 1).sum(dim=dim, keepdim=False) + uv.narrow(
+                                        RuntimeError: CUDA out of memory. Tried to allocate 18.26 GiB. GPU 0 has a total capacity of 79.25 GiB of which 9.52 GiB is free. Including non-PyTorch memory, this process has 69.73 GiB memory in use. Of the allocated memory 68.63 GiB is allocated by PyTorch, and 627.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+                                        
+INFO - 03/14/25 14:39:07 - 0:00:10 - 
+                                     train iters 0
+WARNING - 03/14/25 14:39:44 - 0:00:47 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/14/25 14:39:44 - 0:00:47 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 103, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 45, in forward
+                                            x = self.manifold.expmap0(x)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/__init__.py", line 105, in expmap0
+                                            res = math.expmap0(u, k=self.k, dim=dim)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 341, in expmap0
+                                            return _expmap0(u, k, dim=dim)
+                                        RuntimeError: The following operation failed in the TorchScript interpreter.
+                                        Traceback of TorchScript (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 346, in _expmap0
+                                        @torch.jit.script
+                                        def _expmap0(u, k: torch.Tensor, dim: int = -1):
+                                            nomin = _norm(u, keepdim=True, dim=dim)
+                                                    ~~~~~ <--- HERE
+                                            l_v = torch.cosh(nomin / torch.sqrt(k)) * torch.sqrt(k)
+                                            r_v = torch.sqrt(k) * torch.sinh(nomin / torch.sqrt(k)) * u / nomin
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 282, in _norm
+                                        @torch.jit.script
+                                        def _norm(u, keepdim: bool = False, dim: int = -1):
+                                            return torch.sqrt(torch.clamp_min(_inner(u, u, keepdim=keepdim), 1e-8))
+                                                                              ~~~~~~ <--- HERE
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/geoopt/manifolds/lorentz/math.py", line 40, in _inner
+                                        def _inner(u, v, keepdim: bool = False, dim: int = -1):
+                                            d = u.size(dim) - 1
+                                            uv = u * v
+                                                 ~~~~~ <--- HERE
+                                            if keepdim is False:
+                                                return -uv.narrow(dim, 0, 1).sum(dim=dim, keepdim=False) + uv.narrow(
+                                        RuntimeError: CUDA out of memory. Tried to allocate 18.26 GiB. GPU 0 has a total capacity of 79.25 GiB of which 9.52 GiB is free. Including non-PyTorch memory, this process has 69.73 GiB memory in use. Of the allocated memory 68.63 GiB is allocated by PyTorch, and 627.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+                                        
+INFO - 03/14/25 14:39:54 - 0:00:10 - 
+                                     train iters 0
+slurmstepd: error: *** JOB 2455136 ON a0534 CANCELLED AT 2025-03-14T14:40:09 ***
+=== JOB_STATISTICS ===
+=== current date     : Fri Mar 14 14:40:12 CET 2025
+= Job-ID             : 2455136 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:09:52
+= Total RAM usage    : 74.7 GiB of assigned  GiB (%)
+= Node list          : a0534
+= Subm/Elig/Start/End: 2025-03-14T14:30:13 / 2025-03-14T14:30:13 / 2025-03-14T14:30:17 / 2025-03-14T14:40:09
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.1G   104.9G   209.7G        N/A      51K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-80GB, 00000000:96:00.0, 3116347, 1 %, 0 %, 71400 MiB, 556469 ms
