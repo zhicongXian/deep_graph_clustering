@@ -101,12 +101,20 @@ print(f"Log path: {configs.log_path}")
 logger = create_logger(configs.log_path)
 logger.info(configs)
 
-
+def memory_stats():
+    print(torch.cuda.memory_allocated()/1024**2)
+    print(torch.cuda.memory_cached()/1024**2)
 def train(config: Configuration, seed: int = 0) -> float:
+    print("before training run")
+    memory_stats()
     torch.cuda.empty_cache()
+    memory_stats()
     exp = Exp(DotDict(dict(config)))
     ari = exp.train()
+    print("after training run")
+    memory_stats()
     torch.cuda.empty_cache()
+    memory_stats()
     del exp
     gc.collect()
     return 1 - ari
