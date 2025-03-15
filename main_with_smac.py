@@ -75,9 +75,9 @@ for k, v in configs_dict.items():
     # elif k == "t":
     #     configs_dict_for_configspace[k] = (0.001, 10)
     elif k == "lr":
-        configs_dict_for_configspace[k] = (0.0001, 1)
+        configs_dict_for_configspace[k] = (0.0001, 0.02)
     elif k == "lr_pre":
-        configs_dict_for_configspace[k] = (0.0001, 1)
+        configs_dict_for_configspace[k] = (0.0001, 0.02)
     elif k == "decay_rate":  # regularization coefficient for zero-norm weights
         configs_dict_for_configspace[k] = (0.01, 0.5)
     elif k == "temperature":
