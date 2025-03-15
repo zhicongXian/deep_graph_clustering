@@ -103,11 +103,12 @@ logger.info(configs)
 
 
 def train(config: Configuration, seed: int = 0) -> float:
+    torch.cuda.empty_cache()
     exp = Exp(DotDict(dict(config)))
     ari = exp.train()
     torch.cuda.empty_cache()
-    # del exp
-    # gc.collect()
+    del exp
+    gc.collect()
     return 1 - ari
 
 
