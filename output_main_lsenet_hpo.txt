@@ -433,3 +433,6 @@ Log path: ./results/run/SeNet.log
 Log path: ./results/run/SeNet.log
 [INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
 [INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:139] Using 1 initial design configurations and 0 additional configurations.
+[INFO][abstract_intensifier.py:307] Using only one seed for deterministic scenario.
