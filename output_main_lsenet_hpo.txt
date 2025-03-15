@@ -436,3 +436,6 @@ Log path: ./results/run/SeNet.log
 Log path: ./results/run/SeNet.log
 [INFO][abstract_initial_design.py:139] Using 1 initial design configurations and 0 additional configurations.
 [INFO][abstract_intensifier.py:307] Using only one seed for deterministic scenario.
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:139] Using 1 initial design configurations and 0 additional configurations.
+[INFO][abstract_intensifier.py:307] Using only one seed for deterministic scenario.

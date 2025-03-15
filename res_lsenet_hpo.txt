@@ -1,6 +1,6 @@
-### Starting TaskPrologue of job 2455319 on a0535 at Fri Mar 14 16:30:19 CET 2025
-Running on cores 64-79 with governor ondemand
-Fri Mar 14 16:30:19 2025       
+### Starting TaskPrologue of job 2455970 on a0833 at Sat Mar 15 03:17:20 CET 2025
+Running on cores 32-47 with governor ondemand
+Sat Mar 15 03:17:20 2025       
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.86.15              Driver Version: 570.86.15      CUDA Version: 12.8     |
 |-----------------------------------------+------------------------+----------------------+
@@ -8,8 +8,8 @@ Fri Mar 14 16:30:19 2025
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:90:00.0 Off |                    0 |
-| N/A   41C    P0             64W /  400W |       1MiB /  81920MiB |      0%      Default |
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:49:00.0 Off |                    0 |
+| N/A   33C    P0             62W /  400W |       1MiB /  81920MiB |      0%      Default |
 |                                         |                        |             Disabled |
 +-----------------------------------------+------------------------+----------------------+
                                                                                          
@@ -22,12 +22,12 @@ Fri Mar 14 16:30:19 2025
 +-----------------------------------------------------------------------------------------+
 ### Finished TaskPrologue
 
-INFO - 03/14/25 16:31:23 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 1000, 'epochs': 5000, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_20000.npz', 'label_path': './datasets/senet_label_20000.csv'}
-INFO - 03/14/25 16:31:23 - 0:00:00 - Using `n_configs` and ignoring `n_configs_per_hyperparameter`.
-INFO - 03/14/25 16:31:25 - 0:00:02 - 
+INFO - 03/15/25 03:17:43 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 1000, 'epochs': 5000, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_20000.npz', 'label_path': './datasets/senet_label_20000.csv'}
+INFO - 03/15/25 03:17:43 - 0:00:00 - Using `n_configs` and ignoring `n_configs_per_hyperparameter`.
+INFO - 03/15/25 03:17:45 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:32:21 - 0:00:58 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:32:21 - 0:00:58 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:18:42 - 0:00:59 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:18:42 - 0:00:59 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -73,7 +73,7 @@ WARNING - 03/14/25 16:32:21 - 0:00:58 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 23.78 GiB. GPU 0 has a total capacity of 79.25 GiB of which 4.24 GiB is free. Including non-PyTorch memory, this process has 75.00 GiB memory in use. Of the allocated memory 73.06 GiB is allocated by PyTorch, and 1.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:32:21 - 0:00:58 - Added config f4fd15 as new incumbent because there are no incumbents yet.
+INFO - 03/15/25 03:18:42 - 0:00:59 - Added config c65dc3 as new incumbent because there are no incumbents yet.
 /home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
   diff_b_a = subtract(b, a)
 /home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
@@ -154,10 +154,10 @@ INFO - 03/14/25 16:32:21 - 0:00:58 - Added config f4fd15 as new incumbent becaus
   preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
 /home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
   preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
-INFO - 03/14/25 16:32:24 - 0:00:02 - 
+INFO - 03/15/25 03:18:45 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:32:57 - 0:00:35 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:32:57 - 0:00:35 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:19:20 - 0:00:37 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:19:20 - 0:00:37 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -203,10 +203,10 @@ WARNING - 03/14/25 16:32:57 - 0:00:35 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.30 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.73 GiB is free. Including non-PyTorch memory, this process has 73.52 GiB memory in use. Of the allocated memory 58.67 GiB is allocated by PyTorch, and 14.36 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:32:59 - 0:00:02 - 
+INFO - 03/15/25 03:19:21 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:33:13 - 0:00:15 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:33:13 - 0:00:15 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:19:35 - 0:00:16 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:19:35 - 0:00:16 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -234,10 +234,10 @@ WARNING - 03/14/25 16:33:13 - 0:00:15 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.16 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.73 GiB is free. Including non-PyTorch memory, this process has 73.52 GiB memory in use. Of the allocated memory 57.25 GiB is allocated by PyTorch, and 15.78 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:33:15 - 0:00:02 - 
+INFO - 03/15/25 03:19:37 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:37:25 - 0:04:12 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:37:25 - 0:04:12 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:23:56 - 0:04:21 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:23:56 - 0:04:21 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -262,10 +262,10 @@ WARNING - 03/14/25 16:37:25 - 0:04:12 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 94.87 GiB. GPU 0 has a total capacity of 79.25 GiB of which 56.01 GiB is free. Including non-PyTorch memory, this process has 23.23 GiB memory in use. Of the allocated memory 5.19 GiB is allocated by PyTorch, and 17.55 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:37:27 - 0:00:02 - 
+INFO - 03/15/25 03:23:58 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:37:42 - 0:00:17 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:37:42 - 0:00:17 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:24:13 - 0:00:17 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:24:13 - 0:00:17 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -293,10 +293,10 @@ WARNING - 03/14/25 16:37:42 - 0:00:17 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.42 GiB. GPU 0 has a total capacity of 79.25 GiB of which 4.95 GiB is free. Including non-PyTorch memory, this process has 74.29 GiB memory in use. Of the allocated memory 67.35 GiB is allocated by PyTorch, and 6.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:37:44 - 0:00:02 - 
+INFO - 03/15/25 03:24:15 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:38:02 - 0:00:20 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:38:02 - 0:00:20 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:24:34 - 0:00:21 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:24:34 - 0:00:21 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -324,10 +324,10 @@ WARNING - 03/14/25 16:38:02 - 0:00:20 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 21.96 GiB. GPU 0 has a total capacity of 79.25 GiB of which 7.58 GiB is free. Including non-PyTorch memory, this process has 71.66 GiB memory in use. Of the allocated memory 61.76 GiB is allocated by PyTorch, and 9.42 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:38:04 - 0:00:02 - 
+INFO - 03/15/25 03:24:36 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:39:07 - 0:01:05 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:39:07 - 0:01:05 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:25:44 - 0:01:09 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:25:44 - 0:01:09 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -373,10 +373,10 @@ WARNING - 03/14/25 16:39:07 - 0:01:05 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 25.15 GiB. GPU 0 has a total capacity of 79.25 GiB of which 23.97 GiB is free. Including non-PyTorch memory, this process has 55.27 GiB memory in use. Of the allocated memory 54.41 GiB is allocated by PyTorch, and 379.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:39:08 - 0:00:02 - 
+INFO - 03/15/25 03:25:45 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:39:22 - 0:00:15 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:39:22 - 0:00:15 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:26:00 - 0:00:16 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:26:00 - 0:00:16 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -422,10 +422,10 @@ WARNING - 03/14/25 16:39:22 - 0:00:15 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.83 GiB. GPU 0 has a total capacity of 79.25 GiB of which 10.99 GiB is free. Including non-PyTorch memory, this process has 68.25 GiB memory in use. Of the allocated memory 54.31 GiB is allocated by PyTorch, and 13.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:39:24 - 0:00:02 - 
+INFO - 03/15/25 03:26:02 - 0:00:02 - 
                                      train iters 0
-WARNING - 03/14/25 16:39:30 - 0:00:09 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:39:30 - 0:00:09 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:26:08 - 0:00:09 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:26:08 - 0:00:09 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -549,10 +549,10 @@ WARNING - 03/14/25 16:39:30 - 0:00:09 - Traceback: Traceback (most recent call l
   preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
 /home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
   preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
-INFO - 03/14/25 16:39:35 - 0:00:03 - 
+INFO - 03/15/25 03:26:12 - 0:00:03 - 
                                      train iters 0
-WARNING - 03/14/25 16:39:37 - 0:00:06 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:39:37 - 0:00:06 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:26:15 - 0:00:06 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:26:15 - 0:00:06 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -580,10 +580,10 @@ WARNING - 03/14/25 16:39:37 - 0:00:06 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 7.66 GiB. GPU 0 has a total capacity of 79.25 GiB of which 4.32 GiB is free. Including non-PyTorch memory, this process has 74.92 GiB memory in use. Of the allocated memory 57.33 GiB is allocated by PyTorch, and 17.10 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:39:42 - 0:00:05 - 
+INFO - 03/15/25 03:26:19 - 0:00:05 - 
                                      train iters 0
-WARNING - 03/14/25 16:39:46 - 0:00:09 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
-WARNING - 03/14/25 16:39:46 - 0:00:09 - Traceback: Traceback (most recent call last):
+WARNING - 03/15/25 03:26:24 - 0:00:10 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:26:24 - 0:00:10 - Traceback: Traceback (most recent call last):
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
                                             rval = self(config_copy, target_function, kwargs)
                                           File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
@@ -629,30 +629,5 @@ WARNING - 03/14/25 16:39:46 - 0:00:09 - Traceback: Traceback (most recent call l
                                         torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.24 GiB. GPU 0 has a total capacity of 79.25 GiB of which 4.33 GiB is free. Including non-PyTorch memory, this process has 74.92 GiB memory in use. Of the allocated memory 47.32 GiB is allocated by PyTorch, and 27.11 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
                                         
                                         
-INFO - 03/14/25 16:39:48 - 0:00:02 - 
+INFO - 03/15/25 03:26:26 - 0:00:02 - 
                                      train iters 0
-/var/tmp/slurmd_spool/job2455319/slurm_script: line 14: 4188037 Killed                  python3 ./main_with_smac.py --dataset=SeNet --data_path=./datasets/affinity_matrix_from_senet_sparse_20000.npz --label_path=./datasets/senet_label_20000.csv >> output_main_lsenet_hpo.txt
-slurmstepd: error: Detected 1 oom_kill event in StepId=2455319.batch. Some of the step tasks have been OOM Killed.
-=== JOB_STATISTICS ===
-=== current date     : Fri Mar 14 16:44:46 CET 2025
-= Job-ID             : 2455319 on alex
-= Job-Name           : lsenet_hpo
-= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
-= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
-= Queue/Partition    : a100
-= Slurm account      : v100dd with QOS=normal
-= Features           : a100_80
-= Requested resources:  for 1-00:00:00
-= Elapsed runtime    : 00:14:31
-= Total RAM usage    : 215.6 GiB of assigned  GiB (%)
-= Node list          : a0535
-= Subm/Elig/Start/End: 2025-03-14T16:29:39 / 2025-03-14T16:29:39 / 2025-03-14T16:30:15 / 2025-03-14T16:44:46
-======================
-=== Quota infos ======
-    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
-    /home/hpc           30.1G   104.9G   209.7G        N/A      51K     500K   1,000K        N/A    
-    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
-======================
-=== GPU utilization ==
-gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
-NVIDIA A100-SXM4-80GB, 00000000:90:00.0, 4188037, 4 %, 0 %, 81140 MiB, 838681 ms
