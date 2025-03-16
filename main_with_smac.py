@@ -101,9 +101,12 @@ print(f"Log path: {configs.log_path}")
 logger = create_logger(configs.log_path)
 logger.info(configs)
 
+
 def memory_stats():
-    print(torch.cuda.memory_allocated()/1024**2)
-    print(torch.cuda.memory_cached()/1024**2)
+    print(torch.cuda.memory_allocated() / 1024 ** 2)
+    print(torch.cuda.memory_cached() / 1024 ** 2)
+
+
 def train(config: Configuration, seed: int = 0) -> float:
     print("before training run")
     memory_stats()
@@ -126,12 +129,12 @@ scenario = Scenario(configspace, deterministic=False, n_trials=200)
 # Use SMAC to find the best configuration/hyperparameters
 inital_design = SobolInitialDesign(
     scenario=scenario,
-# n_configs_per_hyperparameter=1,
+    # n_configs_per_hyperparameter=1,
     n_configs=1
 
 )
 
-smac = HyperparameterOptimizationFacade(scenario, train, initial_design=inital_design)
+smac = HyperparameterOptimizationFacade(scenario, train)  # , initial_design=inital_design)
 incumbent = smac.optimize()
 best_score = smac.runhistory.get_min_cost(incumbent)
 # best_parameters = incumbent.get_dictionary()
