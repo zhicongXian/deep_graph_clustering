@@ -121,7 +121,7 @@ def train(config: Configuration, seed: int = 0) -> float:
 
 
 # Scenario object specifying the optimization environment
-scenario = Scenario(configspace, deterministic=True, n_trials=200)
+scenario = Scenario(configspace, deterministic=False, n_trials=200)
 
 # Use SMAC to find the best configuration/hyperparameters
 inital_design = SobolInitialDesign(
