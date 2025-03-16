@@ -1,0 +1,634 @@
+### Starting TaskPrologue of job 2455980 on a0537 at Sat Mar 15 03:55:16 CET 2025
+Running on cores 32-47 with governor ondemand
+Sat Mar 15 03:55:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.86.15              Driver Version: 570.86.15      CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:49:00.0 Off |                    0 |
+| N/A   34C    P0             63W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+INFO - 03/15/25 03:55:25 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 1000, 'epochs': 5000, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_20000.npz', 'label_path': './datasets/senet_label_20000.csv'}
+INFO - 03/15/25 03:55:25 - 0:00:00 - Using `n_configs` and ignoring `n_configs_per_hyperparameter`.
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:106: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached()/1024**2)
+INFO - 03/15/25 03:55:27 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 03:56:24 - 0:00:58 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:56:24 - 0:00:58 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 151, in forward
+                                            ass = self.assignor(x, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 129, in forward
+                                            ass = self.assign_linear(self.proj(x), adj).narrow(-1, 1, self.num_assign)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 24, in forward
+                                            h = self.linear(x)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 59, in forward
+                                            x = torch.cat([time, x_narrow * scale.sqrt()], dim=-1)
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 23.78 GiB. GPU 0 has a total capacity of 79.25 GiB of which 4.24 GiB is free. Including non-PyTorch memory, this process has 75.00 GiB memory in use. Of the allocated memory 73.06 GiB is allocated by PyTorch, and 1.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 03:56:24 - 0:00:58 - Added config c65dc3 as new incumbent because there are no incumbents yet.
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:106: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached()/1024**2)
+INFO - 03/15/25 03:56:27 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 03:57:02 - 0:00:37 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:57:02 - 0:00:37 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 151, in forward
+                                            ass = self.assignor(x, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 137, in forward
+                                            logits = torch.log_softmax(ass, dim=-1)
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.30 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.82 GiB is free. Including non-PyTorch memory, this process has 73.42 GiB memory in use. Of the allocated memory 66.13 GiB is allocated by PyTorch, and 6.80 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 03:57:09 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 03:57:24 - 0:00:16 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 03:57:24 - 0:00:16 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 156, in forward
+                                            adj = ass.exp().t() @ adj @ ass.exp()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.16 GiB. GPU 0 has a total capacity of 79.25 GiB of which 18.88 GiB is free. Including non-PyTorch memory, this process has 60.36 GiB memory in use. Of the allocated memory 57.26 GiB is allocated by PyTorch, and 2.62 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 03:57:26 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:01:43 - 0:04:19 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:01:43 - 0:04:19 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 44, in train
+                                            model = HyperSE(in_features=data['num_features'],
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1343, in to
+                                            return self._apply(convert)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 903, in _apply
+                                            module._apply(fn)
+                                          [Previous line repeated 4 more times]
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 930, in _apply
+                                            param_applied = fn(param)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1329, in convert
+                                            return t.to(
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 94.87 GiB. GPU 0 has a total capacity of 79.25 GiB of which 72.27 GiB is free. Including non-PyTorch memory, this process has 6.97 GiB memory in use. Of the allocated memory 5.20 GiB is allocated by PyTorch, and 1.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:01:45 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:02:00 - 0:00:17 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:02:00 - 0:00:17 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 157, in forward
+                                            adj = adj - torch.eye(adj.shape[0]).to(adj.device) * adj.diag()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.42 GiB. GPU 0 has a total capacity of 79.25 GiB of which 8.86 GiB is free. Including non-PyTorch memory, this process has 70.38 GiB memory in use. Of the allocated memory 67.35 GiB is allocated by PyTorch, and 2.55 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:02:02 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:02:20 - 0:00:20 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:02:20 - 0:00:20 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 156, in forward
+                                            adj = ass.exp().t() @ adj @ ass.exp()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 21.96 GiB. GPU 0 has a total capacity of 79.25 GiB of which 8.55 GiB is free. Including non-PyTorch memory, this process has 70.69 GiB memory in use. Of the allocated memory 61.75 GiB is allocated by PyTorch, and 8.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:02:22 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:03:28 - 0:01:08 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:03:28 - 0:01:08 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 151, in forward
+                                            ass = self.assignor(x, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 129, in forward
+                                            ass = self.assign_linear(self.proj(x), adj).narrow(-1, 1, self.num_assign)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 24, in forward
+                                            h = self.linear(x)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 58, in forward
+                                            (x_narrow * x_narrow).sum(dim=-1, keepdim=True).clamp_min(1e-8)
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 25.15 GiB. GPU 0 has a total capacity of 79.25 GiB of which 22.88 GiB is free. Including non-PyTorch memory, this process has 56.36 GiB memory in use. Of the allocated memory 54.41 GiB is allocated by PyTorch, and 1.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:03:29 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:03:44 - 0:00:16 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:03:44 - 0:00:16 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 151, in forward
+                                            ass = self.assignor(x, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 129, in forward
+                                            ass = self.assign_linear(self.proj(x), adj).narrow(-1, 1, self.num_assign)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 25, in forward
+                                            h = self.agg(h, edge_index)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 101, in forward
+                                            support_t = torch.matmul(adj, x)
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.83 GiB. GPU 0 has a total capacity of 79.25 GiB of which 8.79 GiB is free. Including non-PyTorch memory, this process has 70.46 GiB memory in use. Of the allocated memory 69.14 GiB is allocated by PyTorch, and 848.20 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:03:46 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:03:57 - 0:00:13 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:03:57 - 0:00:13 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 156, in forward
+                                            adj = ass.exp().t() @ adj @ ass.exp()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 29.79 GiB. GPU 0 has a total capacity of 79.25 GiB of which 7.92 GiB is free. Including non-PyTorch memory, this process has 71.32 GiB memory in use. Of the allocated memory 66.33 GiB is allocated by PyTorch, and 4.51 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:106: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached()/1024**2)
+INFO - 03/15/25 04:04:00 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:04:07 - 0:00:09 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:04:07 - 0:00:09 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 156, in forward
+                                            adj = ass.exp().t() @ adj @ ass.exp()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 7.66 GiB. GPU 0 has a total capacity of 79.25 GiB of which 844.75 MiB is free. Including non-PyTorch memory, this process has 78.42 GiB memory in use. Of the allocated memory 72.66 GiB is allocated by PyTorch, and 5.27 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:04:09 - 0:00:02 - 
+                                     train iters 0
+WARNING - 03/15/25 04:04:14 - 0:00:07 - Target function returned infinity or nothing at all. Result is treated as CRASHED and cost is set to inf.
+WARNING - 03/15/25 04:04:14 - 0:00:07 - Traceback: Traceback (most recent call last):
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 190, in run
+                                            rval = self(config_copy, target_function, kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/runner/target_function_runner.py", line 264, in __call__
+                                            return algorithm(config, **algorithm_kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 113, in train
+                                            ari = exp.train()
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 55, in train
+                                            nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 84, in train_clu
+                                            loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+                                            embeddings, clu_mat = self.encoder(features, adj)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+                                            z, edge, ass = layer(z, edge)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+                                            return self._call_impl(*args, **kwargs)
+                                          File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+                                            return forward_call(*args, **kwargs)
+                                          File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 156, in forward
+                                            adj = ass.exp().t() @ adj @ ass.exp()
+                                        torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.24 GiB. GPU 0 has a total capacity of 79.25 GiB of which 6.83 GiB is free. Including non-PyTorch memory, this process has 72.42 GiB memory in use. Of the allocated memory 63.57 GiB is allocated by PyTorch, and 8.36 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                                        
+                                        
+INFO - 03/15/25 04:04:22 - 0:00:02 - 
+                                     train iters 0
+/var/tmp/slurmd_spool/job2455980/slurm_script: line 14: 3437214 Killed                  python3 ./main_with_smac.py --dataset=SeNet --data_path=./datasets/affinity_matrix_from_senet_sparse_20000.npz --label_path=./datasets/senet_label_20000.csv >> output_main_lsenet_hpo.txt
+slurmstepd: error: Detected 1 oom_kill event in StepId=2455980.batch. Some of the step tasks have been OOM Killed.
+=== JOB_STATISTICS ===
+=== current date     : Sat Mar 15 04:56:40 CET 2025
+= Job-ID             : 2455980 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 01:01:31
+= Total RAM usage    : 215.6 GiB of assigned  GiB (%)
+= Node list          : a0537
+= Subm/Elig/Start/End: 2025-03-15T03:54:40 / 2025-03-15T03:54:40 / 2025-03-15T03:55:09 / 2025-03-15T04:56:40
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.1G   104.9G   209.7G        N/A      51K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-80GB, 00000000:49:00.0, 3437214, 1 %, 0 %, 80300 MiB, 3679410 ms
