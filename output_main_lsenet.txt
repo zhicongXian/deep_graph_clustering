@@ -31,3 +31,7 @@ Log path: ./results/run/SeNet.log
 minimum weights are: 0.0
 number of nodes in graph: 1000, 
  Number of edges in the graph: 2146
+Log path: ./results/run/SeNet.log
+minimum weights are: 0.0
+number of nodes in graph: 1000, 
+ Number of edges in the graph: 2146
