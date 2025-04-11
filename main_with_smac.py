@@ -11,7 +11,7 @@ from smac import HyperparameterOptimizationFacade, Scenario
 from ConfigSpace import Configuration, ConfigurationSpace
 import gc
 from smac.initial_design.sobol_design import SobolInitialDesign
-
+from ConfigSpace import Categorical, Configuration, ConfigurationSpace, Float, Integer
 seed = 3047
 random.seed(seed)
 torch.manual_seed(seed)
@@ -65,27 +65,46 @@ with open(f'./configs/{configs.dataset}.json', 'rt') as f:
     configs_dict.update(json.load(f))
 configs = DotDict(configs_dict)
 f.close()
-configs_dict_for_configspace = dict()
-for k, v in configs_dict.items():
-    configs_dict_for_configspace[k] = [v]
-    if k == 'height':
-        configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
-    # elif k == "r":
-    #     configs_dict_for_configspace[k] = (0.001, 10)
-    # elif k == "t":
-    #     configs_dict_for_configspace[k] = (0.001, 10)
-    elif k == "lr":
-        configs_dict_for_configspace[k] = (0.0001, 0.02)
-    elif k == "lr_pre":
-        configs_dict_for_configspace[k] = (0.0001, 0.02)
-    elif k == "decay_rate":  # regularization coefficient for zero-norm weights
-        configs_dict_for_configspace[k] = (0.01, 0.5)
-    elif k == "temperature":
-        configs_dict_for_configspace[k] = (0.01, 1)
-    # elif k == "n_cluster_trials":
-    #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
+# configs_dict_for_configspace = dict()
+# for k, v in configs_dict.items():
+#     configs_dict_for_configspace[k] = [v]
+#     if k == 'height':
+#         configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
+#     # elif k == "r":
+#     #     configs_dict_for_configspace[k] = (0.001, 10)
+#     # elif k == "t":
+#     #     configs_dict_for_configspace[k] = (0.001, 10)
+#     elif k == "lr":
+#         configs_dict_for_configspace[k] = (0.0001, 0.02)
+#     elif k == "lr_pre":
+#         configs_dict_for_configspace[k] = (0.0001, 0.02)
+#     elif k == "decay_rate":  # regularization coefficient for zero-norm weights
+#         configs_dict_for_configspace[k] = (0.01, 0.5)
+#     elif k == "temperature":
+#         configs_dict_for_configspace[k] = (0.01, 1)
+#     # elif k == "n_cluster_trials":
+#     #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
-configspace = ConfigurationSpace(configs_dict_for_configspace)
+configspace = ConfigurationSpace()
+# spectral_1 = categorical("affinity", ['rbf', 'nearest_neighbors'], default='rbf')
+# spectral_2 = float("gamma", (0, 5), default=1.0)
+# spectral_3 = integer("n_neighbors", (2, max_nn), default=10)
+# spectral_4 = constant("n_clusters", num_classes)
+# config_space.add([spectral_1, spectral_2, spectral_3, spectral_4])
+# spectral_cond_1 = equalscondition(config_space['gamma'], config_space['affinity'], 'rbf')
+# config_space.add(spectral_cond_1)
+# spectral_cond_2 = equalscondition(config_space['n_neighbors'], config_space['affinity'],
+#                                   'nearest_neighbors')
+height_config = Categorical("height", [2, 3, 4, 5, 6], default=4)
+r_config = Float("r",(0.001, 10), default=2)
+t_config = Float("t",(0.001, 10), default=2)
+lr_config = Float("lr",(0.0001, 0.02), default=1e-3)
+lr_pre_config = Float("lr_pre",(0.0001, 0.02), default=1e-3)
+decay_rate_config = Float("decay_rate",(0.01, 0.5), default=None)
+tmp_config = Float("temperature",(0.01, 1), default=0.05)
+n_cluster_trials_config = Integer("n_cluster_trials", (4,20), default=5)
+configspace.add([height_config, r_config, t_config, lr_config, lr_pre_config, decay_rate_config, tmp_config,
+                 n_cluster_trials_config])
 # Scenario object specifying the optimization environment
 scenario = Scenario(configspace, deterministic=False, n_trials=200)
 
