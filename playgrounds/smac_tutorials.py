@@ -7,7 +7,7 @@ from smac import HyperparameterOptimizationFacade, Scenario
 from sklearn import datasets
 from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
-
+from ConfigSpace import Float, Categorical
 iris = datasets.load_iris()
 
 
@@ -17,8 +17,10 @@ def train(config: Configuration, seed: int = 0) -> float:
     return 1 - np.mean(scores)
 
 
-configspace = ConfigurationSpace({"C": (0.100, 1000.0)})
-
+configspace = ConfigurationSpace()#{"C": (0.100, 1000.0)})
+c_config = Float("C", (0.0100, 1000.0), default=0.5)
+kernel_config = Categorical("kernel", ['linear', 'poly', 'rbf', 'sigmoid', 'precomputed'])
+configspace.add([c_config, kernel_config] )
 # Scenario object specifying the optimization environment
 scenario = Scenario(configspace, deterministic=True, n_trials=200)
 
