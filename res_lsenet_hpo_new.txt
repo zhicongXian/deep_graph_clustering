@@ -1,0 +1,556 @@
+### Starting TaskPrologue of job 2538147 on a0731 at Fri Apr 11 16:04:21 CEST 2025
+Running on cores 64-79 with governor ondemand
+Fri Apr 11 16:04:21 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:91:00.0 Off |                    0 |
+| N/A   42C    P0             66W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+INFO - 04/11/25 16:04:43 - 0:00:00 - {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 1000, 'epochs': 5000, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+INFO - 04/11/25 16:04:43 - 0:00:00 - Using `n_configs` and ignoring `n_configs_per_hyperparameter`.
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:126: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached() / 1024 ** 2)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:126: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached() / 1024 ** 2)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:126: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached() / 1024 ** 2)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py:4779: RuntimeWarning: invalid value encountered in subtract
+  diff_b_a = subtract(b, a)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/smac/model/random_forest/random_forest.py:222: RuntimeWarning: Mean of empty slice
+  preds_as_array = np.log(np.nanmean(np.exp(preds_as_array), axis=2) + VERY_SMALL_NUMBER)
+/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py:126: FutureWarning: `torch.cuda.memory_cached` has been renamed to `torch.cuda.memory_reserved`
+  print(torch.cuda.memory_cached() / 1024 ** 2)
+Traceback (most recent call last):
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_smac.py", line 162, in <module>
+    json.dump(dict(incumbent), fp)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int64 is not JSON serializable
+=== JOB_STATISTICS ===
+=== current date     : Fri Apr 11 16:04:54 CEST 2025
+= Job-ID             : 2538147 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 00:00:40
+= Total RAM usage    : 2.0 GiB of assigned  GiB (%)
+= Node list          : a0731
+= Subm/Elig/Start/End: 2025-04-11T15:55:47 / 2025-04-11T15:55:47 / 2025-04-11T16:04:14 / 2025-04-11T16:04:54
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.2G   104.9G   209.7G        N/A      56K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
