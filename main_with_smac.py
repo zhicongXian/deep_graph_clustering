@@ -87,7 +87,7 @@ for k, v in configs_dict.items():
 #     # elif k == "n_cluster_trials":
 #     #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
-configspace = ConfigurationSpace(configs_dict_for_configspace)
+configspace = ConfigurationSpace()#configs_dict_for_configspace)
 # spectral_1 = categorical("affinity", ['rbf', 'nearest_neighbors'], default='rbf')
 # spectral_2 = float("gamma", (0, 5), default=1.0)
 # spectral_3 = integer("n_neighbors", (2, max_nn), default=10)
@@ -104,9 +104,9 @@ lr_config = Float("lr", (0.0001, 0.02), default=1e-3)
 lr_pre_config = Float("lr_pre", (0.0001, 0.02), default=1e-3)
 decay_rate_config = Float("decay_rate", (0.01, 0.5), default=None)
 tmp_config = Float("temperature", (0.01, 1), default=0.05)
-n_cluster_trials_config = Integer("n_cluster_trials", (4, 20), default=5)
-configspace.add([height_config, r_config, t_config, lr_config, lr_pre_config, decay_rate_config, tmp_config,
-                 n_cluster_trials_config])
+# n_cluster_trials_config = Integer("n_cluster_trials", (4, 20), default=5)
+configspace.add([height_config, r_config, t_config, lr_config, lr_pre_config, decay_rate_config, tmp_config])
+                 #n_cluster_trials_config])
 # Scenario object specifying the optimization environment
 scenario = Scenario(configspace, deterministic=False, n_trials=200)
 
@@ -128,12 +128,12 @@ def memory_stats():
     print(torch.cuda.memory_cached() / 1024 ** 2)
 
 
-def train(config: Configuration, seed: int = 0) -> float:
+def train(hyper_config: Configuration, seed: int = 0) -> float:
     print("before training run")
     memory_stats()
     torch.cuda.empty_cache()
     memory_stats()
-    exp = Exp(DotDict(dict(config)))
+    exp = Exp(configs, DotDict(dict(hyper_config)))
     ari = exp.train()
     print("after training run")
     memory_stats()

@@ -46,12 +46,12 @@ class Exp:
                             hidden_features=self.configs.hidden_dim,
                             hidden_dim_enc=self.configs.hidden_dim_enc,
                             num_nodes=data['num_nodes'],
-                            height=self.hyper_config.height, temperature=self.hyper_config.temperature,
+                            height=self.configs.height, temperature=self.configs.temperature,
                             embed_dim=self.configs.embed_dim, dropout=self.configs.dropout,
                             nonlin=self.configs.nonlin,
-                            decay_rate=self.hyper_config.decay_rate,
+                            decay_rate=self.configs.decay_rate,
                             max_nums=self.configs.max_nums).to(device)
-            optimizer = RiemannianAdam(model.parameters(), lr=self.hyper_config.lr, weight_decay=self.configs.w_decay)
+            optimizer = RiemannianAdam(model.parameters(), lr=self.configs.lr, weight_decay=self.configs.w_decay)
             if self.configs.task == 'Clustering':
                 nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
                 total_nmi.append(nmi)
@@ -78,7 +78,7 @@ class Exp:
         pretrained = True
         if pretrained:
             # model.load_state_dict(torch.load(f'checkpoints/{self.configs.save_path}'))
-            optimizer_pre = RiemannianAdam(model.parameters(), lr=self.hyper_config.lr_pre,
+            optimizer_pre = RiemannianAdam(model.parameters(), lr=self.configs.lr_pre,
                                            weight_decay=self.configs.w_decay)
             for epoch in range(1, self.configs.pre_epochs):
                 model.train()
@@ -108,14 +108,14 @@ class Exp:
                 # decode_time = time.time()
                 tree = construct_tree(torch.tensor([i for i in range(data['num_nodes'])]).long(),
                                       manifold,
-                                      model.embeddings, model.ass_mat, height=self.hyper_config.height,
+                                      model.embeddings, model.ass_mat, height=self.configs.height,
                                       num_nodes=embeddings.shape[0])
                 decode_time = time.time() - decode_time
                 logger.info(f"Decoding cost time: {decode_time: .3f} s")
-                tree_graph = to_networkx_tree(tree, manifold, height=self.hyper_config.height)
+                tree_graph = to_networkx_tree(tree, manifold, height=self.configs.height)
                 predicts = decoding_cluster_from_tree(manifold, tree_graph,
                                                       data['num_classes'], data['num_nodes'],
-                                                      height=self.hyper_config.height)
+                                                      height=self.configs.height)
                 trues = data['labels']
                 acc, nmi, f1, ari = [], [], [], []
                 for step in range(n_cluster_trials):
@@ -153,22 +153,22 @@ class Exp:
         manifold = model.manifold.cpu()
         tree = construct_tree(torch.tensor([i for i in range(data['num_nodes'])]).long(),
                               manifold,
-                              model.embeddings, model.ass_mat, height=self.hyper_config.height,
+                              model.embeddings, model.ass_mat, height=self.configs.height,
                               num_nodes=embeddings.shape[0])
-        tree_graph = to_networkx_tree(tree, manifold, height=self.hyper_config.height)
-        _, color_dict = plot_leaves(tree_graph, manifold, embeddings, data['labels'], height=self.hyper_config.height,
-                                    save_path=f"./results/{self.configs.dataset}/{self.configs.dataset}_hyp_h{self.hyper_config.height}_{exp_iter}_true.pdf")
+        tree_graph = to_networkx_tree(tree, manifold, height=self.configs.height)
+        _, color_dict = plot_leaves(tree_graph, manifold, embeddings, data['labels'], height=self.configs.height,
+                                    save_path=f"./results/{self.configs.dataset}/{self.configs.dataset}_hyp_h{self.configs.height}_{exp_iter}_true.pdf")
         # plot_nx_graph(tree_graph, root=data['num_nodes'],
         #               save_path=f"./results/{self.configs.dataset}/{self.configs.dataset}_hyp_h{self.configs.height}_{exp_iter}_nx.pdf")
         predicts = decoding_cluster_from_tree(manifold, tree_graph,
                                               data['num_classes'], data['num_nodes'],
-                                              height=self.hyper_config.height)
+                                              height=self.configs.height)
         trues = data['labels']
         metrics = cluster_metrics(trues, predicts)
         metrics.clusterAcc()
         new_pred = metrics.new_predicts
-        plot_leaves(tree_graph, manifold, embeddings, new_pred, height=self.hyper_config.height,
-                                    save_path=f"./results/{self.configs.dataset}/{self.configs.dataset}_hyp_h{self.hyper_config.height}_{exp_iter}_pred.pdf",
+        plot_leaves(tree_graph, manifold, embeddings, new_pred, height=self.configs.height,
+                                    save_path=f"./results/{self.configs.dataset}/{self.configs.dataset}_hyp_h{self.configs.height}_{exp_iter}_pred.pdf",
                     colors_dict=color_dict)
         for k, result in best_cluster_result.items():
             acc, nmi, f1, ari = result
@@ -180,7 +180,7 @@ class Exp:
         val_prop = 0.05
         test_prop = 0.1
         pos_edges, neg_edges = mask_edges(data['edge_index'], data['neg_edge_index'], val_prop, test_prop)
-        decoder = FermiDiracDecoder(self.hyper_config.r, self.hyper_config.t).to(device)
+        decoder = FermiDiracDecoder(self.configs.r, self.configs.t).to(device)
         best_ap = 0
         early_stop_count = 0
         # time_before_train = time.time()
