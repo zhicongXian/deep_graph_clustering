@@ -4079,3 +4079,6 @@ KeyError: 'use_gpu'
 [INFO][smbo.py:337] --- Remaining cpu time: inf
 [INFO][smbo.py:338] --- Remaining trials: 0
 best ari found -inf
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 310 to 50 (max_ratio == 0.25).
+[INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.
