@@ -20,6 +20,8 @@ class Exp:
     def __init__(self, configs, hyper_config):
         self.configs = configs
         self.hyper_config = hyper_config
+        print(f"default configuration: {self.configs}")
+        print(f"hyper_config: {hyper_config}")
         if self.configs.use_gpu and torch.cuda.is_available():
             self.device = torch.device('cuda:0')
         else:
