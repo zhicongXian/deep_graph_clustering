@@ -18,10 +18,15 @@ import time
 
 class Exp:
     def __init__(self, configs, hyper_config):
+
         self.configs = configs
         self.hyper_config = hyper_config
+        logger = create_logger(self.configs.log_path)
         print(f"default configuration: {self.configs}")
+        logger.info(f"default configuration: {self.configs}")
         print(f"hyper_config: {hyper_config}")
+        logger.info(f"hyper_config: {hyper_config}")
+
         if self.configs.use_gpu and torch.cuda.is_available():
             self.device = torch.device('cuda:0')
         else:
@@ -34,6 +39,10 @@ class Exp:
 
     def train(self):
         logger = create_logger(self.configs.log_path)
+        print(f"default configuration: {self.configs}")
+        logger.info(f"default configuration: {self.configs}")
+        print(f"hyper_config: {self.hyper_config}")
+        logger.info(f"hyper_config: {self.hyper_config}")
         device = self.device
         data = load_data(self.configs)
         self.send_device(data)
