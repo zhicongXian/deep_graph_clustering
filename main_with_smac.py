@@ -97,7 +97,7 @@ configspace = ConfigurationSpace()#configs_dict_for_configspace)
 # config_space.add(spectral_cond_1)
 # spectral_cond_2 = equalscondition(config_space['n_neighbors'], config_space['affinity'],
 #                                   'nearest_neighbors')
-height_config = Categorical("height", [2, 3, 4, 5, 6], default=4)
+height_config = Categorical("height", [2, 3, 4], default=4) # [5,6] too large
 r_config = Float("r", (0.001, 10), default=2, log=True)
 t_config = Float("t", (0.001, 10), default=2, log=True)
 lr_config = Float("lr", (0.0001, 0.02), default=1e-3, log=True)

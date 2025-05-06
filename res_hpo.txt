@@ -6762,3 +6762,59 @@ INFO - 05/02/25 13:24:22 - 7:28:55 - Epoch 515: train_loss=0.21302177011966705
 INFO - 05/02/25 13:24:26 - 7:28:59 - Epoch 516: train_loss=0.21273308992385864
 INFO - 05/02/25 13:24:30 - 7:29:03 - Epoch 517: train_loss=0.2124212682247162
 INFO - 05/02/25 13:24:34 - 7:29:06 - Epoch 518: train_loss=0.21196536719799042
+INFO - 05/02/25 13:24:37 - 7:29:10 - Epoch 519: train_loss=0.21314595639705658
+INFO - 05/02/25 13:24:41 - 7:29:14 - Epoch 520: train_loss=0.21278269588947296
+INFO - 05/02/25 13:24:45 - 7:29:18 - Epoch 521: train_loss=0.21232928335666656
+INFO - 05/02/25 13:24:49 - 7:29:21 - Epoch 522: train_loss=0.2119213193655014
+INFO - 05/02/25 13:24:53 - 7:29:25 - Epoch 523: train_loss=0.21300381422042847
+INFO - 05/02/25 13:24:56 - 7:29:29 - Epoch 524: train_loss=0.21260447800159454
+INFO - 05/02/25 13:25:00 - 7:29:33 - Epoch 525: train_loss=0.21221016347408295
+INFO - 05/02/25 13:25:04 - 7:29:37 - Epoch 526: train_loss=0.21175464987754822
+INFO - 05/02/25 13:25:08 - 7:29:40 - Epoch 527: train_loss=0.21290935575962067
+INFO - 05/02/25 13:25:12 - 7:29:44 - Epoch 528: train_loss=0.21257618069648743
+INFO - 05/02/25 13:25:15 - 7:29:48 - Epoch 529: train_loss=0.21199387311935425
+INFO - 05/02/25 13:25:19 - 7:29:52 - Epoch 530: train_loss=0.21161065995693207
+INFO - 05/02/25 13:25:23 - 7:29:56 - Epoch 531: train_loss=0.21291953325271606
+INFO - 05/02/25 13:25:27 - 7:29:59 - Epoch 532: train_loss=0.21244308352470398
+INFO - 05/02/25 13:25:30 - 7:30:03 - Epoch 533: train_loss=0.21190237998962402
+INFO - 05/02/25 13:25:34 - 7:30:07 - Epoch 534: train_loss=0.21162986755371094
+INFO - 05/02/25 13:25:38 - 7:30:11 - Epoch 535: train_loss=0.21278493106365204
+INFO - 05/02/25 13:25:42 - 7:30:15 - Epoch 536: train_loss=0.2123570293188095
+INFO - 05/02/25 13:25:46 - 7:30:18 - Epoch 537: train_loss=0.21172885596752167
+INFO - 05/02/25 13:25:49 - 7:30:22 - Epoch 538: train_loss=0.21147982776165009
+INFO - 05/02/25 13:25:53 - 7:30:26 - Epoch 539: train_loss=0.21295768022537231
+INFO - 05/02/25 13:25:57 - 7:30:30 - Epoch 540: train_loss=0.2123912274837494
+INFO - 05/02/25 13:26:01 - 7:30:33 - Epoch 541: train_loss=0.21143555641174316
+INFO - 05/02/25 13:26:05 - 7:30:37 - Epoch 542: train_loss=0.21295523643493652
+INFO - 05/02/25 13:26:08 - 7:30:41 - Epoch 543: train_loss=0.21045967936515808
+INFO - 05/02/25 13:26:12 - 7:30:45 - Epoch 544: train_loss=0.2111208736896515
+INFO - 05/02/25 13:26:16 - 7:30:49 - Epoch 545: train_loss=0.2135125994682312
+INFO - 05/02/25 13:26:20 - 7:30:52 - Epoch 546: train_loss=0.20994848012924194
+INFO - 05/02/25 13:26:24 - 7:30:56 - Epoch 547: train_loss=0.2169845849275589
+INFO - 05/02/25 13:26:27 - 7:31:00 - Epoch 548: train_loss=0.21592284739017487
+INFO - 05/02/25 13:26:31 - 7:31:04 - Epoch 549: train_loss=0.21402032673358917
+INFO - 05/02/25 13:26:35 - 7:31:08 - Epoch 550: train_loss=0.21330228447914124
+INFO - 05/02/25 13:26:39 - 7:31:11 - Epoch 551: train_loss=0.21566946804523468
+=== JOB_STATISTICS ===
+=== current date     : Sat May  3 05:55:12 CEST 2025
+= Job-ID             : 2605806 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_80
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:17
+= Total RAM usage    : 5.5 GiB of assigned  GiB (%)
+= Node list          : a0532
+= Subm/Elig/Start/End: 2025-04-28T17:04:49 / 2025-04-28T17:04:49 / 2025-05-02T05:54:51 / 2025-05-03T05:55:08
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.2G   104.9G   209.7G        N/A      56K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-80GB, 00000000:49:00.0, 380521, 94 %, 14 %, 32542 MiB, 86404624 ms
