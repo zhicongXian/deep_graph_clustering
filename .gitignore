@@ -169,3 +169,5 @@ res_lsenet_hpo_new.txt
 output_main_lsenet_hpo.txt
 res_lsenet_hpo.txt
 res_lsenet_a40.txt
+/output_main_lsenet_single_run.txt
+/res_lsenet_one_run.txt

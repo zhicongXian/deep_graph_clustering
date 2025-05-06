@@ -3,7 +3,7 @@ import numpy as np
 import os
 import random
 import argparse
-from exp import Exp
+from exp_single_run import Exp
 from logger import create_logger
 import json
 from utils.train_utils import DotDict
