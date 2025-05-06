@@ -121,3 +121,26 @@ INFO - 05/01/25 18:23:03 - 0:05:53 - Epoch 92: train_loss=0.36345747113227844
 INFO - 05/01/25 18:23:06 - 0:05:57 - Epoch 93: train_loss=0.3683486580848694
 INFO - 05/01/25 18:23:10 - 0:06:01 - Epoch 94: train_loss=0.36758866906166077
 INFO - 05/01/25 18:23:14 - 0:06:04 - Epoch 95: train_loss=0.35844704508781433
+=== JOB_STATISTICS ===
+=== current date     : Fri May  2 18:15:56 CEST 2025
+= Job-ID             : 2609094 on alex
+= Job-Name           : lsenet_hpo
+= Job-Command        : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/fau_alex_job_script_hpo.sh
+= Initial workdir    : /home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering
+= Queue/Partition    : a100
+= Slurm account      : v100dd with QOS=normal
+= Features           : a100_40
+= Requested resources:  for 1-00:00:00
+= Elapsed runtime    : 1-00:00:12
+= Total RAM usage    : 5.3 GiB of assigned  GiB (%)
+= Node list          : a0703
+= Subm/Elig/Start/End: 2025-04-30T10:15:57 / 2025-04-30T10:15:57 / 2025-05-01T18:15:41 / 2025-05-02T18:15:53
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           30.2G   104.9G   209.7G        N/A      56K     500K   1,000K        N/A    
+    /home/vault          0.0K  1048.6G  2097.2G        N/A       1      200K     400K        N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA A100-SXM4-40GB, 00000000:4F:00.0, 445975, 94 %, 18 %, 32542 MiB, 86367779 ms
