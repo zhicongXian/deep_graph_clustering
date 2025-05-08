@@ -68,7 +68,7 @@ configs = DotDict(configs_dict)
 f.close()
 configs_dict_for_configspace = dict()
 for k, v in configs_dict.items():
-    if k not in ['height', "r", "t", "lr", "lr_pre", "decay_rate", "temperature", "n_cluster_trials"]:
+    if k not in ['height', "r", "t", "lr", "lr_pre", "decay_rate", "temperature"]:
         configs_dict_for_configspace[k] = [v]
 #     if k == 'height':
 #         configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
