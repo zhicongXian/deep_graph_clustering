@@ -12,6 +12,9 @@ from ConfigSpace import Configuration, ConfigurationSpace
 import gc
 from smac.initial_design.sobol_design import SobolInitialDesign
 from ConfigSpace import Categorical, Configuration, ConfigurationSpace, Float, Integer
+import optuna
+import logging
+import sys
 
 seed = 3047
 random.seed(seed)
@@ -70,43 +73,10 @@ configs_dict_for_configspace = dict()
 for k, v in configs_dict.items():
     if k not in ['height', "r", "t", "lr", "lr_pre", "decay_rate", "temperature"]:
         configs_dict_for_configspace[k] = [v]
-#     if k == 'height':
-#         configs_dict_for_configspace[k] = [2, 3, 4, 5, 6]
-#     # elif k == "r":
-#     #     configs_dict_for_configspace[k] = (0.001, 10)
-#     # elif k == "t":
-#     #     configs_dict_for_configspace[k] = (0.001, 10)
-#     elif k == "lr":
-#         configs_dict_for_configspace[k] = (0.0001, 0.02)
-#     elif k == "lr_pre":
-#         configs_dict_for_configspace[k] = (0.0001, 0.02)
-#     elif k == "decay_rate":  # regularization coefficient for zero-norm weights
-#         configs_dict_for_configspace[k] = (0.01, 0.5)
-#     elif k == "temperature":
-#         configs_dict_for_configspace[k] = (0.01, 1)
-#     # elif k == "n_cluster_trials":
-#     #     configs_dict_for_configspace[k] = np.arange(5, 20).tolist()
 
-configspace = ConfigurationSpace()#configs_dict_for_configspace)
-# spectral_1 = categorical("affinity", ['rbf', 'nearest_neighbors'], default='rbf')
-# spectral_2 = float("gamma", (0, 5), default=1.0)
-# spectral_3 = integer("n_neighbors", (2, max_nn), default=10)
-# spectral_4 = constant("n_clusters", num_classes)
-# config_space.add([spectral_1, spectral_2, spectral_3, spectral_4])
-# spectral_cond_1 = equalscondition(config_space['gamma'], config_space['affinity'], 'rbf')
-# config_space.add(spectral_cond_1)
-# spectral_cond_2 = equalscondition(config_space['n_neighbors'], config_space['affinity'],
-#                                   'nearest_neighbors')
-height_config = Categorical("height", [2, 3, 4], default=4) # [5,6] too large
-r_config = Float("r", (0.001, 10), default=2, log=True)
-t_config = Float("t", (0.001, 10), default=2, log=True)
-lr_config = Float("lr", (0.0001, 0.02), default=1e-3, log=True)
-lr_pre_config = Float("lr_pre", (0.0001, 0.02), default=1e-3, log=True)
-decay_rate_config = Float("decay_rate", (0.0, 0.5), default=None)
-tmp_config = Float("temperature", (0.01, 1), default=0.05)
-# n_cluster_trials_config = Integer("n_cluster_trials", (4, 20), default=5)
-configspace.add([height_config, r_config, t_config, lr_config, lr_pre_config, decay_rate_config, tmp_config])
-                 #n_cluster_trials_config])
+configspace = ConfigurationSpace()  # configs_dict_for_configspace)
+
+# n_cluster_trials_config])
 # Scenario object specifying the optimization environment
 scenario = Scenario(configspace, deterministic=False, n_trials=200)
 
@@ -128,37 +98,49 @@ def memory_stats():
     print(torch.cuda.memory_cached() / 1024 ** 2)
 
 
-def train(hyper_config: Configuration, seed: int = 0) -> float:
-    #print("before training run")
-    #memory_stats()
+def train(trial) -> float:
     torch.cuda.empty_cache()
-    #memory_stats()
-    exp = Exp(configs, DotDict(dict(hyper_config)))
+    hyper_config = dict()
+    height = trial.suggest_categorical('height', [2, 3, 4, 5])
+    r = trial.suggest_float('r', 0.001, 10, log=True)
+    t = trial.suggest_float('t', 0.001, 10, log=True)
+    lr_pre = trial.suggest_float('lr_pre', 0.0001, 0.05, log=True)
+    lr = trial.suggest_float("lr", 0.0001, 0.05, log=True)
+    decay_rate = trial.suggest_float("decay_rate", 0.0, 0.5)
+    temperature = trial.suggest_float("temperature", 0.01, 1, log=True)
+
+    hyper_config["height"] = height
+    hyper_config["r"] = r
+    hyper_config["t"] = t
+    hyper_config["lr_pre"] = lr_pre
+    hyper_config["lr"] = lr
+    hyper_config["decay_rate"] = decay_rate
+    hyper_config["temperature"] = temperature
+
+    exp = Exp(configs, DotDict(hyper_config))
     ari = exp.train()
-    #print("after training run")
-    #memory_stats()
+
     torch.cuda.empty_cache()
-    #memory_stats()
-    #del exp
+
     gc.collect()
     return 1 - ari
 
 
 # Scenario object specifying the optimization environment
-scenario = Scenario(configspace, deterministic=False, n_trials=200)
+optuna.logging.get_logger("optuna").addHandler(logging.StreamHandler(sys.stdout))
+study_name = "lse_optuna"  # Unique identifier of the study.
+storage_name = "sqlite:///{}.db".format(study_name)
 
-# Use SMAC to find the best configuration/hyperparameters
-inital_design = SobolInitialDesign(
-    scenario=scenario,
-    # n_configs_per_hyperparameter=1,
-    n_configs=1
-
+study = optuna.create_study(study_name=study_name, storage=storage_name)
+study.enqueue_trial(
+    {
+        "r": 2.0,
+        "t": 2.0,
+        "lr": 1e-3,
+        'lr_pre': 1e-3,
+        'temperature': 1e-3,
+        "height": 4
+    }
 )
-
-smac = HyperparameterOptimizationFacade(scenario, train)  # , initial_design=inital_design)
-incumbent = smac.optimize()
-best_score = smac.runhistory.get_min_cost(incumbent)
-# best_parameters = incumbent.get_dictionary()
-print(f"best ari found {1 - best_score}")
-with open('hpo_best_results.json', 'w') as fp:
-    json.dump(dict(incumbent), fp)
+study.optimize(train, n_trials=200)
+# Use SMAC to find the best configuration/hyperparameters
