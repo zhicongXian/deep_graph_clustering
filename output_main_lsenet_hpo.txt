@@ -4742,3 +4742,6 @@ Log path: ./results/run/SeNet.log
 [INFO][abstract_intensifier.py:289] Added existing seed 209652396 from runhistory to the intensifier.
 [INFO][abstract_intensifier.py:289] Added existing seed 398764591 from runhistory to the intensifier.
 [INFO][abstract_intensifier.py:289] Added existing seed 924231285 from runhistory to the intensifier.
+Log path: ./results/run/SeNet.log
+[INFO][abstract_initial_design.py:87] Reducing the number of initial configurations from 70 to 50 (max_ratio == 0.25).
+[INFO][abstract_initial_design.py:139] Using 50 initial design configurations and 0 additional configurations.

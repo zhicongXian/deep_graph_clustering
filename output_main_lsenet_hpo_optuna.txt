@@ -1,0 +1,53 @@
+Log path: ./results/run/SeNet.log
+A new study created in RDB with name: lse_optuna
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 4, 'r': 2.0, 't': 2.0, 'lr_pre': 0.001, 'lr': 0.001, 'decay_rate': 0.3377068608246568, 'temperature': 0.001}
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 4, 'r': 2.0, 't': 2.0, 'lr_pre': 0.001, 'lr': 0.001, 'decay_rate': 0.3377068608246568, 'temperature': 0.001}
+minimum weights are: 0.0
+number of nodes in graph: 1000, 
+ Number of edges in the graph: 2146
+Trial 0 finished with value: 0.8099134416800635 and parameters: {'height': 4, 'r': 2.0, 't': 2.0, 'lr_pre': 0.001, 'lr': 0.001, 'decay_rate': 0.3377068608246568, 'temperature': 0.001}. Best is trial 0 with value: 0.8099134416800635.
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 2, 'r': 0.33948545830176846, 't': 0.9585872421204401, 'lr_pre': 0.00027752568193202624, 'lr': 0.00047844608423310394, 'decay_rate': 0.19522830873532315, 'temperature': 0.01471582280477529}
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 2, 'r': 0.33948545830176846, 't': 0.9585872421204401, 'lr_pre': 0.00027752568193202624, 'lr': 0.00047844608423310394, 'decay_rate': 0.19522830873532315, 'temperature': 0.01471582280477529}
+minimum weights are: 0.0
+number of nodes in graph: 1000, 
+ Number of edges in the graph: 2146
+Trial 1 finished with value: 0.9143064554830359 and parameters: {'height': 2, 'r': 0.33948545830176846, 't': 0.9585872421204401, 'lr_pre': 0.00027752568193202624, 'lr': 0.00047844608423310394, 'decay_rate': 0.19522830873532315, 'temperature': 0.01471582280477529}. Best is trial 0 with value: 0.8099134416800635.
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 4, 'r': 0.0013140065899404146, 't': 3.262280336125822, 'lr_pre': 0.0001229449285059496, 'lr': 0.00040509329415089486, 'decay_rate': 0.2697648006397327, 'temperature': 0.04084533197047828}
+default configuration: {'dataset': 'SeNet', 'task': 'Clustering', 'root_path': './datasets', 'eval_freq': 100, 'exp_iters': 5, 'version': 'run', 'log_path': './results/run/SeNet.log', 'pre_epochs': 200, 'epochs': 1500, 'height': 3, 'lr_pre': 0.01, 'lr': 0.01, 'w_decay': 0.0, 'decay_rate': 9, 'max_nums': None, 'embed_dim': 32, 'hidden_dim_enc': 64, 'hidden_dim': 64, 'dropout': 0.0, 'nonlin': None, 'temperature': 0.2, 'n_cluster_trials': 5, 't': 1.0, 'r': 2.0, 'patience': 5, 'save_path': 'model.pt', 'use_gpu': True, 'gpu': 0, 'devices': '0,1', 'data_path': './datasets/affinity_matrix_from_senet_sparse_1000.npz', 'label_path': './datasets/senet_label_1000.csv'}
+hyper_config: {'height': 4, 'r': 0.0013140065899404146, 't': 3.262280336125822, 'lr_pre': 0.0001229449285059496, 'lr': 0.00040509329415089486, 'decay_rate': 0.2697648006397327, 'temperature': 0.04084533197047828}
+minimum weights are: 0.0
+number of nodes in graph: 1000, 
+ Number of edges in the graph: 2146
+Trial 2 failed with parameters: {'height': 4, 'r': 0.0013140065899404146, 't': 3.262280336125822, 'lr_pre': 0.0001229449285059496, 'lr': 0.00040509329415089486, 'decay_rate': 0.2697648006397327, 'temperature': 0.04084533197047828} because of the following error: OutOfMemoryError('CUDA out of memory. Tried to allocate 9.67 GiB. GPU 0 has a total capacity of 79.25 GiB of which 8.06 GiB is free. Including non-PyTorch memory, this process has 71.19 GiB memory in use. Of the allocated memory 68.03 GiB is allocated by PyTorch, and 2.66 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)').
+Traceback (most recent call last):
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/optuna/study/_optimize.py", line 197, in _run_trial
+    value_or_values = func(trial)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/./main_with_optuna.py", line 121, in train
+    ari = exp.train()
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 67, in train
+    nmi, ari = self.train_clu(data, model, optimizer, logger, device, exp_iter)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/exp.py", line 96, in train_clu
+    loss = model.loss(data, data['edge_index'], data['neg_edge_index'], device, pretrain=True)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/hyperSE.py", line 65, in loss
+    embeddings, clu_mat = self.encoder(features, adj)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/l_se_net.py", line 55, in forward
+    z, edge, ass = layer(z, edge)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hpc/v100dd/v100dd15/.conda/envs/clustering_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/models/layers.py", line 158, in forward
+    adj = gumbel_sigmoid(adj, tau=self.temperature)
+  File "/home/atuin/v100dd/v100dd15/python_code/deep_graph_clustering/deep_graph_clustering/utils/utils.py", line 70, in gumbel_sigmoid
+    gumbels = (logits + gumbels) / tau  # ~Gumbel(logits, tau)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.67 GiB. GPU 0 has a total capacity of 79.25 GiB of which 8.06 GiB is free. Including non-PyTorch memory, this process has 71.19 GiB memory in use. Of the allocated memory 68.03 GiB is allocated by PyTorch, and 2.66 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Trial 2 failed with value None.
