@@ -6,6 +6,7 @@ x_filepath = "../datasets/affinity_matrix_from_senet_sparse_20000.npz"
 y_filepath = "../datasets/senet_label_20000.csv"
 x = sp.sparse.load_npz(x_filepath).toarray()
 y = np.loadtxt(y_filepath)
+print(f" number of different labels are {len(np.unique(y))}")
 import plotly.express as px
 import plotly
 
